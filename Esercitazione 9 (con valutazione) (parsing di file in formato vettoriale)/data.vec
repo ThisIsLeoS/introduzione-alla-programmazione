@@ -1,0 +1,7 @@
+< circle 50 50 10 id cerchio1 >
+< circle 50 50 10 move 20 20 rotate 10 scale 0.5 id cerchio2 >
+< rect 50 50 10 30 rotate 90 >
+< rect 10 10 20 20 move 50 0 id rect1 >
+< repeat cerchio1 4 move 5 0 >
+< repeat rect1 5 move 15 15 scale 0.8 >
+< poly 10 10 10 15 20 20 24 10 >

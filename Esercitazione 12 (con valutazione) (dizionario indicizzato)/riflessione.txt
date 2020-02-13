@@ -1,0 +1,47 @@
+Si potrebbe allungare l'array trasformandolo in un bidimensionale di
+26x26 celle. Ad ogni posizione verrebbe associata una coppia di lettere
+secondo l'ordine lessicografico (aa, ab, ac... zx, zy, zz). 
+
+La posizione dell' array in cui si trova la testa di una lista che ci
+interessa potrebbe essere trovata con un codice del genere:
+
+int i, j;
+stringstream is(s); 
+s.get(c);
+i=f(c);
+s.get(c);
+j=f(c);
+testa=az[i][j];
+
+La funzione "f" non subirebbe quindi modifiche, ma verrebbe chiamata
+due volte.
+
+La funzione "print_word_by_letter" si occuperebbe, se per esempio si
+volesse stampare tutte le parole che iniziano per "a", di trovare, con
+un codice tipo quello scritto sopra, la testa della lista contente
+stringhe che iniziano per "aa" (ovvero az[0][1]), per poi stampare,
+attraverso un ciclo for, tutte le stringhe delle liste le cui teste si
+trovano dalla posizione [0][1] a quella [0][25] dell'array. 
+
+La funzione "print_word_by_couple" si semplificherebbe molto.
+Basterebbe trovare la testa della lista opportuna con un codice tipo
+quello scritto sopra e poi scorrere la lista con un cursore e stampare
+tutte le stringhe contenute nella lista stessa.
+
+Inoltre, a differenza del caso del dizionario di 26 elementi, in questo
+caso esisterebbe un puntatore associato ad ogni coppia di lettere, si
+potrebbe quindi far puntare il puntatore "next_couple" di tutte le
+celle di una lista, la cui testa è in una data posizione dell' array, a
+ciò che è puntato (o NULL o una cella) dal puntatore contenuto nella
+posizione successiva dell'array. Se la testa della lista in cui
+inserire una stringa fosse az[i=5][j=15], basterebbe assegnare
+az[i=5][j+1=16] al puntatore "next_couple" della cella in cui viene
+inserita la stringa.
+
+In definitiva, quindi, seppur a fronte di un costo maggiore in termini
+di spazio occupato, ci sarebbe una semplificazione in termini di codice
+ed inoltre un costo computazionale minore: la "print_word_by_couple",
+infatti, non dovrebbe scorrere celle contenenti stringhe da non
+stampare, la "contains_word", invece, dovrebbe comunque scorrere celle
+non contenenti la stringa da cercare, ma queste sarebbero in numero
+minore.
